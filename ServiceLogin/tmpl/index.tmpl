@@ -1,0 +1,74 @@
+<? INC Header.tmpl ?>
+
+<form action="<? VAR URIPrefix TOP ?><? VAR ModPath TOP ?>" method="post">
+	<? INC _csrf_check.tmpl ?>
+	<div class="section">
+		<h3>Service Login Details</h3>
+		<div class="sectionbg">
+			<div class="sectionbody">
+				<div class="subsection">
+					<div class="inputlabel">Username:</div>
+					<input type="text" name="myuser" value="<? VAR Username ?>" class="half" maxlength="128"
+							   title="Please enter a username." />
+				</div>
+				<div class="subsection">
+					<div class="inputlabel">Password:</div>
+					<input type="text" name="mypass" value="<? VAR Password ?>" class="half" maxlength="128"
+						   title="Please enter a password." />
+				</div>
+                                <div class="subsection">
+                                        <div class="inputlabel">TOTP Secret:</div>
+                                        <input type="text" name="myhex" value="<? VAR HEXSecret ?>" class="half" maxlength="128"
+                                                           title="Required for generation of Trivial One Time Passwords. Leave empty if not using TOTP." />
+                                </div>
+				<div style="clear: both;"></div>
+			</div>
+		</div>
+	</div>
+
+	<div class="section">
+		<h3>Options</h3>
+		<div class="sectionbg">
+			<div class="sectionbody lotsofcheckboxes">
+				<? LOOP Options ?>
+				<span class="checkboxandlabel" title="<? VAR Tooltip ?>">
+					<input type="checkbox" name="<? VAR OptionName ?>" id="opt_<? VAR OptionName ?>" value="1"<? IF Checked ?> checked="checked"<? ENDIF ?><? IF Disabled ?> disabled="disabled"<? ENDIF ?> />
+					<label for="opt_<? VAR OptionName ?>"><? VAR DisplayName ?></label>
+				</span>
+				<? ENDLOOP ?>
+				<div style="clear:both;"></div>
+			</div>
+		</div>
+	</div>
+
+        <div class="section">
+                <h3>Advanced Options</h3>
+                <div class="sectionbg">
+                        <div class="sectionbody">
+                                <div class="subsection">
+                                        <div class="inputlabel">Service Name:</div>
+                                        <input type="text" name="myname" value="<? VAR ServiceName ?>" class="half" maxlength="128"
+                                                           title="Please enter the nickname of the service. Undernet uses X" />
+                                </div>
+                                <div class="subsection">
+                                        <div class="inputlabel">Service Host:</div>
+                                        <input type="text" name="myhost" value="<? VAR ServiceHost ?>" class="half" maxlength="128"
+                                                           title="Please enter the service hostname (after the @). Undernet uses channels.undernet.org" />
+                                </div>
+                                <div class="subsection">
+                                        <div class="inputlabel">Command to login:</div>
+                                        <input type="text" name="mylogin" value="<? VAR ServiceCommand ?>" class="half" maxlength="128"
+                                                           title="Please enter the login command. Undernet uses login" />
+                                </div>
+                                <div style="clear: both;"></div>
+                        </div>
+                </div>
+        </div>
+
+        <div class="submitline">
+                <input type="hidden" name="submitted" value="1" />
+                <input type="submit" value="Save" />
+        </div>
+</form>
+
+<? INC Footer.tmpl ?>
