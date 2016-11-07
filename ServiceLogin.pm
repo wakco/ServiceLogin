@@ -3,11 +3,11 @@
 package ServiceLogin;
 
 use base 'ZNC::Module';
-use Authen::OATH; # required for Trivial One Time Passwords management
+use Authen::OATH; # required for Time-based One Time Passwords management
 use Convert::Base32; # Authen::OATH requires hex secrets, Gnuworld services may supply the secret in base32
 
 sub description {
- "This Perl Module is designed to help login to Gnuworld services such as X on Undernet supporting Trivial One Time Passwords, the +x hidden host feature (including random nick on connect), and login on connect."
+ "This Perl Module is designed to help login to Gnuworld services such as X on Undernet supporting Time-based One Time Passwords, the +x hidden host feature (including random nick on connect), and login on connect."
 }
 
 sub GetWebMenuTitle {
