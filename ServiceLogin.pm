@@ -7,14 +7,14 @@ use Authen::OATH; # required for Trivial One Time Passwords management
 use Convert::Base32; # Authen::OATH requires hex secrets, Gnuworld services may supply the secret in base32
 
 sub description {
- "This Perl Module is designed to help login to Gnuworld services such as X on Undernet supporting Trivial One Time Passwords, the +x hidden host feature, login on connect, and/or connect with a random nickname and restore your nickname after host is hidden."
+ "This Perl Module is designed to help login to Gnuworld services such as X on Undernet supporting Trivial One Time Passwords, the +x hidden host feature (including random nick on connect), and login on connect."
 }
 
 sub GetWebMenuTitle {
  "Login Services"
 }
 
-# Script default for script only variables
+# Module defaults for script only variables
 my $hostHidden = 0;
 my $randomNick = "";
 my $preferredNick = "";
@@ -30,8 +30,8 @@ my $serviceService = $serviceName."\@".$serviceHost;
 my $serviceLogin = "login";
 my $serviceUsername = "";
 my $servicePassword = "";
-my $serviceSecret = ""; # hex secret
-my $service32Secret = 0; # base32 secret
+my $serviceSecret = "";
+my $service32Secret = 0; # Secret is assumed HEX, with this enabled the secret is converted from a base32 secret
 my $preferredModes = 1; # required for hidden host
 
 sub serviceGetTOTP {
@@ -93,13 +93,13 @@ sub OnWebRequest {
  my $row2 = $tmpl->AddRow("Options");
  $row2->set("OptionName", "myb32");
  $row2->set("DisplayName", "TOTP Secret is base32");
- $row2->set("Tooltip", "Works best with HEX secrets, but if yourse is base32, try enabling this");
+ $row2->set("Tooltip", "This module works best with HEX secrets, but if you have trouble, enable this.");
  $row2->set("Checked", $service32Secret);
  $row2->set("Disabled", 0);
  my $row3 = $tmpl->AddRow("Options");
  $row3->set("OptionName", "loginonconnect");
  $row3->set("DisplayName", "Login on Connect");
- $row3->set("Tooltip", "Login on Connect (Coming to undernet).");
+ $row3->set("Tooltip", "Login on Connect (coming to Undernet).");
  $row3->set("Checked", $loginOnConnect);
  $tmpl->set("ServiceName", $serviceName);
  $tmpl->set("ServiceHost", $serviceHost);
