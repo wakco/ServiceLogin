@@ -144,6 +144,28 @@ sub OnRaw {
  return $ZNC::CONTINUE;
 }
 
+Sub OnNick {
+ my $self = shift;
+ my ($nick, $newnick, $channels) = @_;
+ if ( $preferredNick ) {
+  if ( $newnick =~ $preferredNick ) {
+   $preferredNick = "";
+  }
+ }
+ return $ZNC::CONTINUE;
+}
+
+Sub OnQuit {
+ my $self = shift;
+ my ($nick, $quitmessage, $channels) = @_;
+ if ( $preferredNick ) {
+  if ( $nick =~ $preferredNick ) {
+   $self->PutIRC("NICK ".$preferredNick);
+  }
+ }
+ return $ZNC::CONTINUE;
+}
+
 sub OnIRCDisconnected {
  my $self = shift;
  $hostHidden = 0;
