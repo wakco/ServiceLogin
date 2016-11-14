@@ -140,13 +140,13 @@ sub OnRaw {
   $hostHidden = 1;
   $self->PutIRC("NICK ".$preferredNick);
   $self->PutStatus("Login successful, host hidden, trying to get nickname: ".$preferredNick);
- } elsif ( $code =~ /NICK/ ) {
-  if ( $me =~ /$preferredNick/ && $preferredNick ) {
+ } elsif ( $code =~ /NICK/ && $preferredNick ) {
+  if ( $me =~ /$preferredNick/ ) {
    $self->PutStatus("Regained nickname: ".$preferredNick);
    $preferredNick = "";
   }
- } elsif ( $code =~ /QUIT/ ) {
-  if ( $me =~ /$preferredNick/ && $preferredNick ) {
+ } elsif ( $code =~ /QUIT/ && $preferredNick ) {
+  if ( $me =~ /$preferredNick/ ) {
    $self->PutStatus("Nickname: ".$preferredNick."has been released, trying to regain it.");
    $self->PutIRC("NICK ".$preferredNick);
   }
