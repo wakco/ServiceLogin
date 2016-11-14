@@ -140,27 +140,13 @@ sub OnRaw {
   $hostHidden = 1;
   $self->PutIRC("NICK ".$preferredNick);
   $self->PutStatus("Login successful, host hidden, trying to get nickname: ".$preferredNick);
- }
- return $ZNC::CONTINUE;
-}
-
-Sub OnNick {
- my $self = shift;
- my ($nick, $newnick, ''@channels'') = @_;
- if ( $preferredNick ) {
-  if ( $newnick->GetNick =~ /$preferredNick/ ) {
+ } elsif ( $code =~ /NICK/ ) {
+  if ( $me =~ /$preferredNick/ ) {
    $self->PutStatus("Regained nickname: ".$preferredNick);
    $preferredNick = "";
   }
- }
- return $ZNC::CONTINUE;
-}
-
-Sub OnQuit {
- my $self = shift;
- my ($nick, $quitmessage, ''@channels'') = @_;
- if ( $preferredNick ) {
-  if ( $nick->GetNick =~ /$preferredNick/ ) {
+ } elsif ( $code =~ /QUIT/ ) {
+  if ( $me =~ /$preferredNick/ ) {
    $self->PutStatus("Nickname: ".$preferredNick."has been released, trying to regain it.");
    $self->PutIRC("NICK ".$preferredNick);
   }
