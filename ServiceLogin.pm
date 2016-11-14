@@ -146,9 +146,10 @@ sub OnRaw {
 
 Sub OnNick {
  my $self = shift;
- my ($nick, $newnick, $channels) = @_;
+ my ($nick, $newnick, ''@channels'') = @_;
  if ( $preferredNick ) {
-  if ( $newnick =~ $preferredNick ) {
+  if ( $newnick->GetNick =~ /$preferredNick/ ) {
+   $self->PutStatus("Regained nickname: ".$preferredNick);
    $preferredNick = "";
   }
  }
@@ -157,9 +158,10 @@ Sub OnNick {
 
 Sub OnQuit {
  my $self = shift;
- my ($nick, $quitmessage, $channels) = @_;
+ my ($nick, $quitmessage, ''@channels'') = @_;
  if ( $preferredNick ) {
-  if ( $nick =~ $preferredNick ) {
+  if ( $nick->GetNick =~ /$preferredNick/ ) {
+   $self->PutStatus("Nickname: ".$preferredNick."has been released, trying to regain it.");
    $self->PutIRC("NICK ".$preferredNick);
   }
  }
