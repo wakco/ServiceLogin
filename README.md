@@ -6,8 +6,10 @@ This module includes support for Time-based One Time Passwords (TOTP), hidden ho
 Perl will need Authen::OATH for TOTP support, and Convert::Base32 for converting base 32 TOTP secrets.
 
 Install the following into .znc/modules
-  ServiceLogin.pm
-  ServiceLogin/tmpl/index.tmpl
+
+ServiceLogin.pm
+
+ServiceLogin/tmpl/index.tmpl
 
 Configuration is currently only available via the znc web interface, as these are set-and-forget type settings. 
 
