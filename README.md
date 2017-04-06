@@ -16,5 +16,7 @@ ServiceLogin is based on ZNC's q module, using ideas from the q module, and comb
 
 
 To come:
+
 Option for +x! (connect with hidden host only if login valid, i.e. no X, disconnect)
+
 Attempt to recover nickname
