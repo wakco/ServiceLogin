@@ -3,7 +3,9 @@ ZNC network perl module for logging into Gnuworld irc channel services such as X
 
 This module includes support for Time-based One Time Passwords (TOTP), hidden host (usermode +x and randomised nickname while connecting), and for Login on Connect.
 
-Perl will need Authen::OATH for TOTP support, and Convert::Base32 for converting base 32 TOTP secrets.
+Perl will need the following perl modules installed:
+- Authen::OATH for TOTP support
+- Convert::Base32 for converting base 32 TOTP secrets.
 
 Install the following into .znc/modules
 - ServiceLogin.pm
