@@ -13,3 +13,8 @@ Configuration is currently only available via the znc web interface, as these ar
 
 
 ServiceLogin is based on ZNC's q module, using ideas from the q module, and combining them with ideas from TOTP login, and Login on Connect ZNC Perl modules I wrote: https://halo.wak.co.nz/ZNC-ULoCTOTP (note: private https certificate will require acceptance).
+
+
+To come:
+Option for +x! (connect with hidden host only if login valid, i.e. no X, disconnect)
+Attempt to recover nickname
