@@ -1,13 +1,13 @@
 # ServiceLogin
-ZNC network perl module for logging into Gnuworld irc channel services such as X on Undernet.
+ServiceLogin is a ZNC network perl module for logging into Gnuworld irc channel services such as X on Undernet.
 
 This module includes support for Time-based One Time Passwords (TOTP), hidden host (usermode +x and randomised nickname while connecting), and for Login on Connect.
 
-Perl will need the following perl modules installed:
+#### Perl will need the following perl modules installed:
 - Authen::OATH for TOTP support
 - Convert::Base32 for converting base 32 TOTP secrets.
 
-Install the following into .znc/modules
+#### Install the following into .znc/modules
 - ServiceLogin.pm
 - ServiceLogin/tmpl/index.tmpl
 
@@ -17,6 +17,6 @@ Configuration is currently only available via the znc web interface, as these ar
 ServiceLogin is based on ZNC's q module, using ideas from the q module, and combining them with ideas from TOTP login, and Login on Connect ZNC Perl modules I wrote: https://halo.wak.co.nz/ZNC-ULoCTOTP (note: private https certificate will require acceptance).
 
 
-To come:
+#### To come:
 - Option for +x! (connect with hidden host only if login valid, i.e. no service to login to, or invalid login, disconnect)
 - Attempt to recover nickname
