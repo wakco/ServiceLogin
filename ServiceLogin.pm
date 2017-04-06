@@ -178,7 +178,7 @@ sub OnIRCRegistration {
   $self->loginString();
   $self->PutStatus( $reportBack );
   if ( $preferredModes ) {
-   $_[0] = "+x".$loginDetails;
+   $_[0] = "+x ".$loginDetails;
   } else {
    $_[0] = $loginDetails;
   }
