@@ -32,7 +32,7 @@
 			<div class="sectionbody lotsofcheckboxes">
 				<? LOOP Options ?>
 				<span class="checkboxandlabel" title="<? VAR Tooltip ?>">
-					<input type="checkbox" name="<? VAR OptionName ?>" id="opt_<? VAR OptionName ?>" value="1"<? IF Checked ?> checked="checked"<? ENDIF ?><? IF Disabled ?> disabled="disabled"<? ENDIF ?> />
+					<input type="checkbox" name="<? VAR OptionName ?>" id="opt_<? VAR OptionName ?>" value="1"<? IF Checked ?> checked="checked"<? ENDIF ?> />
 					<label for="opt_<? VAR OptionName ?>"><? VAR DisplayName ?></label>
 				</span>
 				<? ENDLOOP ?>
