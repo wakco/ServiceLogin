@@ -89,13 +89,11 @@ sub OnWebRequest {
  $row1->set("DisplayName", "Hidden Host");
  $row1->set("Tooltip", "Sets +ix and randomises your nickname on connect.");
  $row1->set("Checked", $preferredModes);
- $row1->set("Disabled", 0);
  my $row2 = $tmpl->AddRow("Options");
  $row2->set("OptionName", "myb32");
  $row2->set("DisplayName", "TOTP Secret is base32");
  $row2->set("Tooltip", "This module works best with HEX secrets, but if you have trouble, enable this.");
  $row2->set("Checked", $service32Secret);
- $row2->set("Disabled", 0);
  my $row3 = $tmpl->AddRow("Options");
  $row3->set("OptionName", "loginonconnect");
  $row3->set("DisplayName", "Login on Connect");
