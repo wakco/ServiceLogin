@@ -14,7 +14,7 @@ This module includes support for Time-based One Time Passwords (TOTP), hidden ho
 Configuration is currently only available via the znc web interface, as these are set-and-forget type settings. 
 
 
-ServiceLogin is based on ZNC's q module, using ideas from the q module, and combining them with ideas from TOTP login, and Login on Connect ZNC Perl modules I wrote: https://halo.wak.co.nz/ZNC-ULoCTOTP (note: private https certificate will require acceptance).
+ServiceLogin is based on ZNC's q module, using ideas from the q module, and combining them with ideas from TOTP login, and Login on Connect ZNC Perl modules I wrote: https://halo.wak.co.nz/ZNC-ULoCTOTP
 
 
 #### To come:
