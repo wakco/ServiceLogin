@@ -7,6 +7,8 @@ This module includes support for Time-based One Time Passwords (TOTP), hidden ho
 - Authen::OATH for TOTP support
 - Convert::Base32 for converting base 32 TOTP secrets.
 
+Unless you have a preferred method for installing perl modules, I recommend using `sudo cpan module::name`.
+
 #### Install the following into .znc/modules
 - ServiceLogin.pm
 - ServiceLogin/tmpl/index.tmpl
@@ -18,6 +20,6 @@ ServiceLogin is based on ZNC's q module, using ideas from the q module, and comb
 
 
 #### To come:
-- Option for +x! (connect with hidden host only if login valid, i.e. no service to login to, or invalid login, disconnect)
-- Attempt to recover nickname
-- Commands to edit settings to replace the web page with since the web page doesn't work in ZNC 1.6.5+ (appears to be a bug in ZNC people are having trouble isolating).
+- [ ] Option for +x! (connect with hidden host only if login valid, i.e. no service to login to, or invalid login, disconnect)
+- [ ] Attempt to recover nickname
+- [ ] Commands to edit settings to replace the web page with since the web page doesn't work in ZNC 1.6.5+ (appears to be a bug in ZNC people are having trouble isolating).
